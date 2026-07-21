@@ -1,160 +1,870 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>JourneyCanvas | Your Travel Story</title>
+<title>JourneyCanvas | Your Travel Story</title>
 
-    <meta name="description" content="JourneyCanvas is an interactive travel diary where memories become a visual journey.">
+<meta name="description" content="JourneyCanvas - Create your personal travel map and save your unforgettable memories.">
 
-    <link rel="stylesheet" href="css/style.css">
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 18px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(15px);
+
+    border-radius: 20px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+.menu-btn {
+    display: none;
+    background: transparent;
+    font-size: 25px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    padding: 140px 8% 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+
+.hero-content {
+    max-width: 600px;
+}
+
+
+.hero h1 {
+
+    font-size: clamp(2.5rem,5vw,4.5rem);
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+
+}
+
+
+.hero p {
+
+    font-size: 1.15rem;
+
+    color: #64748b;
+
+    margin-bottom: 35px;
+
+}
+
+
+.primary-btn {
+
+    display: inline-block;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 15px 35px;
+
+    border-radius: 50px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+
+}
+
+
+.primary-btn:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 15px 30px rgba(37,99,235,.3);
+
+}
+
+
+/* =========================
+   GLOBE
+========================= */
+
+.globe-wrapper {
+
+    position: relative;
+
+}
+
+
+.globe {
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:140px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #38bdf8,
+        #2563eb
+    );
+
+    box-shadow:
+
+    0 30px 70px rgba(37,99,235,.35);
+
+    animation: floating 4s infinite ease-in-out;
+
+}
+
+
+@keyframes floating {
+
+    50% {
+
+        transform: translateY(-20px);
+
+    }
+
+}
+
+
+.pin {
+
+    position:absolute;
+
+    font-size:30px;
+
+    animation:pulse 2s infinite;
+
+}
+
+
+.pin.one {
+
+    top:40px;
+
+    left:50px;
+
+}
+
+
+.pin.two {
+
+    bottom:60px;
+
+    right:40px;
+
+}
+
+
+.pin.three {
+
+    top:120px;
+
+    right:60px;
+
+}
+
+
+@keyframes pulse {
+
+    50% {
+
+        transform:scale(1.2);
+
+    }
+
+}
+
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+
+section {
+
+    padding:90px 8%;
+
+}
+
+
+.section-title {
+
+    text-align:center;
+
+    font-size:2.3rem;
+
+    margin-bottom:50px;
+
+}
+
+
+
+/* =========================
+   FEATURES
+========================= */
+
+
+.features-grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+.feature-card {
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.07);
+
+    transition:.3s;
+
+}
+
+
+.feature-card:hover {
+
+    transform:translateY(-10px);
+
+}
+
+
+.feature-icon {
+
+    font-size:45px;
+
+    margin-bottom:20px;
+
+}
+
+
+.feature-card p {
+
+    color:#64748b;
+
+}
+
+
+
+/* =========================
+   MEMORY FORM
+========================= */
+
+
+.memory-section {
+
+    background:#0f172a;
+
+    color:white;
+
+}
+
+
+.memory-container {
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+
+.memory-form {
+
+    background:white;
+
+    color:#0f172a;
+
+    padding:35px;
+
+    border-radius:25px;
+
+}
+
+
+.input-group {
+
+    margin-bottom:20px;
+
+}
+
+
+.input-group label {
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+
+.input-group input,
+.input-group textarea {
+
+    width:100%;
+
+    padding:12px 15px;
+
+    border-radius:12px;
+
+    border:1px solid #cbd5e1;
+
+    font-size:1rem;
+
+}
+
+
+.input-group textarea {
+
+    resize:none;
+
+    height:120px;
+
+}
+
+
+.save-btn {
+
+    width:100%;
+
+    padding:15px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+}
+
+
+
+/* =========================
+   MEMORIES
+========================= */
+
+
+.memories-grid {
+
+    margin-top:50px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+.memory-card {
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+.memory-card h3 {
+
+    margin-bottom:10px;
+
+}
+
+
+.memory-card p {
+
+    color:#64748b;
+
+}
+
+
+.delete-btn {
+
+    margin-top:15px;
+
+    background:#ef4444;
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+}
+
+
+
+/* =========================
+   STATISTICS
+========================= */
+
+
+.statistics {
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    text-align:center;
+
+}
+
+
+.stat-box strong {
+
+    display:block;
+
+    font-size:3rem;
+
+}
+
+
+.stat-box span {
+
+    color:#64748b;
+
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+
+footer {
+
+    background:#020617;
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:900px) {
+
+
+.hero {
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+
+.features-grid,
+.memories-grid,
+.statistics {
+
+    grid-template-columns:1fr;
+
+}
+
+
+.globe {
+
+    width:220px;
+
+    height:220px;
+
+    font-size:100px;
+
+}
+
+}
+
+
+@media(max-width:700px) {
+
+
+.nav-links {
+
+    display:none;
+
+}
+
+
+.menu-btn {
+
+    display:block;
+
+}
+
+
+.navbar {
+
+    margin:10px;
+
+}
+
+
+section {
+
+    padding:70px 5%;
+
+}
+
+
+}
+
+</style>
+
 </head>
-
 <body>
 
 <header>
-    <nav class="navbar">
-        <a href="#" class="logo">🌍 JourneyCanvas</a>
 
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#journey">My Journey</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+<nav class="navbar">
 
-        <button class="menu-btn" aria-label="Open menu">
-            ☰
-        </button>
-    </nav>
+<div class="logo">
+🌍 JourneyCanvas
+</div>
+
+<ul class="nav-links">
+
+<li><a href="#home">Home</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#memory">Add Memory</a></li>
+<li><a href="#journey">Journey</a></li>
+
+</ul>
+
+<button class="menu-btn">
+☰
+</button>
+
+</nav>
+
 </header>
 
 
 <main>
 
 <section class="hero" id="home">
-    <div class="hero-content">
-        <h1>
-            Every Journey Has A Story 🌎
-        </h1>
 
-        <p>
-            Create your personal travel map, save unforgettable memories,
-            and turn every destination into a beautiful story.
-        </p>
+<div class="hero-content">
 
-        <a href="#features" class="primary-btn">
-            Start Exploring
-        </a>
-    </div>
+<h1>
+Every Journey Has A Story 🌎
+</h1>
 
-    <div class="globe-container">
-        <div class="globe">
-            🌍
-        </div>
+<p>
+Create your personal travel map, save memories,
+and transform every destination into a story.
+</p>
 
-        <span class="pin pin-1">📍</span>
-        <span class="pin pin-2">📍</span>
-        <span class="pin pin-3">📍</span>
-    </div>
-</section>
+<a href="#memory" class="primary-btn">
+Start Exploring
+</a>
+
+</div>
 
 
-<section class="features" id="features">
+<div class="globe-wrapper">
 
-    <h2>
-        Your Journey, Your Story
-    </h2>
+<div class="globe">
+🌍
+</div>
 
-    <div class="cards">
+<span class="pin one">📍</span>
+<span class="pin two">📍</span>
+<span class="pin three">📍</span>
 
-        <article class="card">
-            <span class="card-icon">🗺️</span>
-
-            <h3>
-                Interactive Map
-            </h3>
-
-            <p>
-                Explore the world map and mark places you have visited
-                or want to discover.
-            </p>
-        </article>
-
-
-        <article class="card">
-            <span class="card-icon">📸</span>
-
-            <h3>
-                Save Memories
-            </h3>
-
-            <p>
-                Add photos, stories, ratings, and special moments
-                from every destination.
-            </p>
-        </article>
-
-
-        <article class="card">
-            <span class="card-icon">✈️</span>
-
-            <h3>
-                Track Adventures
-            </h3>
-
-            <p>
-                Create your travel timeline and see how your journey grows.
-            </p>
-        </article>
-
-    </div>
+</div>
 
 </section>
 
 
-<section class="journey" id="journey">
+<section id="features">
 
-    <h2>
-        Your Travel Statistics
-    </h2>
+<h2 class="section-title">
+Your Journey, Your Story
+</h2>
 
-    <div class="stats">
 
-        <div class="stat-card">
-            <strong>0</strong>
-            <span>Countries</span>
-        </div>
+<div class="features-grid">
 
-        <div class="stat-card">
-            <strong>0</strong>
-            <span>Cities</span>
-        </div>
+<div class="feature-card">
 
-        <div class="stat-card">
-            <strong>0</strong>
-            <span>Memories</span>
-        </div>
+<div class="feature-icon">
+🗺️
+</div>
 
-    </div>
+<h3>
+Interactive Map
+</h3>
+
+<p>
+Save destinations and create your personal travel collection.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+📸
+</div>
+
+<h3>
+Save Memories
+</h3>
+
+<p>
+Store your favorite travel moments and stories.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+<div class="feature-icon">
+✈️
+</div>
+
+<h3>
+Track Adventures
+</h3>
+
+<p>
+Follow your journey and see your travel progress.
+</p>
+
+</div>
+
+</div>
 
 </section>
 
 
-<section class="cta" id="contact">
+<section class="memory-section" id="memory">
 
-    <h2>
-        Ready to create your travel story?
-    </h2>
+<h2 class="section-title">
+Add New Memory
+</h2>
 
-    <p>
-        Start collecting your memories and build your personal world map.
-    </p>
+<div class="memory-container">
 
-    <a href="#" class="primary-btn">
-        Create My Map
-    </a>
+<form class="memory-form" id="memoryForm">
+
+<div class="input-group">
+
+<label>
+Destination
+</label>
+
+<input id="destination" type="text" placeholder="Example: Paris">
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Date
+</label>
+
+<input id="date" type="date">
+
+</div>
+
+
+<div class="input-group">
+
+<label>
+Your Story
+</label>
+
+<textarea id="story" placeholder="Write your memory..."></textarea>
+
+</div>
+
+
+<button class="save-btn">
+Save Memory
+</button>
+
+
+</form>
+
+</div>
+
+</section>
+<section id="journey">
+
+<h2 class="section-title">
+Your Travel Journey
+</h2>
+
+<div class="statistics">
+
+<div class="stat-box">
+<strong id="countryCount">0</strong>
+<span>Destinations</span>
+</div>
+
+<div class="stat-box">
+<strong id="memoryCount">0</strong>
+<span>Memories</span>
+</div>
+
+<div class="stat-box">
+<strong id="journeyCount">0</strong>
+<span>Adventures</span>
+</div>
+
+</div>
+
+
+<div class="memories-grid" id="memoriesContainer"></div>
+
+</section>
+
+
+<section class="cta">
+
+<h2 class="section-title">
+Ready for your next adventure?
+</h2>
+
+<p style="text-align:center; margin-bottom:30px; color:#64748b;">
+Start collecting your memories and create your own travel story.
+</p>
+
+<div style="text-align:center;">
+<a href="#memory" class="primary-btn">
+Create Memory
+</a>
+</div>
 
 </section>
 
@@ -162,13 +872,250 @@
 
 
 <footer>
-    <p>
-        © 2026 JourneyCanvas. Built with HTML, CSS & JavaScript.
-    </p>
+
+<p>
+© 2026 JourneyCanvas | Built with HTML, CSS & JavaScript
+</p>
+
 </footer>
 
 
-<script src="js/script.js"></script>
+
+<script>
+
+
+// =========================
+// MOBILE MENU
+// =========================
+
+
+const menuButton = document.querySelector(".menu-btn");
+const navigation = document.querySelector(".nav-links");
+
+
+menuButton.addEventListener("click", () => {
+
+    if(navigation.style.display === "flex") {
+
+        navigation.style.display = "none";
+
+    } else {
+
+        navigation.style.display = "flex";
+
+        navigation.style.flexDirection = "column";
+
+        navigation.style.position = "absolute";
+
+        navigation.style.top = "70px";
+
+        navigation.style.right = "20px";
+
+        navigation.style.background = "white";
+
+        navigation.style.padding = "20px";
+
+        navigation.style.borderRadius = "20px";
+
+        navigation.style.boxShadow = "0 10px 30px rgba(0,0,0,.1)";
+
+    }
+
+});
+
+
+
+
+// =========================
+// MEMORY SYSTEM
+// =========================
+
+
+const form = document.getElementById("memoryForm");
+
+const destinationInput = document.getElementById("destination");
+
+const dateInput = document.getElementById("date");
+
+const storyInput = document.getElementById("story");
+
+
+const memoriesContainer = document.getElementById("memoriesContainer");
+
+
+let memories = JSON.parse(localStorage.getItem("journeyMemories")) || [];
+
+
+
+
+// SAVE MEMORY
+
+
+form.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+
+    const memory = {
+
+        id: Date.now(),
+
+        destination: destinationInput.value,
+
+        date: dateInput.value,
+
+        story: storyInput.value
+
+    };
+
+
+    if(memory.destination === "" || memory.story === "") {
+
+        alert("Please fill destination and story.");
+
+        return;
+
+    }
+
+
+    memories.push(memory);
+
+
+    saveMemories();
+
+
+    form.reset();
+
+
+    displayMemories();
+
+});
+
+
+
+
+// SAVE TO LOCAL STORAGE
+
+
+function saveMemories(){
+
+    localStorage.setItem(
+
+        "journeyMemories",
+
+        JSON.stringify(memories)
+
+    );
+
+}
+
+
+
+
+// DISPLAY MEMORIES
+
+
+function displayMemories(){
+
+
+    memoriesContainer.innerHTML = "";
+
+
+    memories.forEach(memory => {
+
+
+        const card = document.createElement("div");
+
+
+        card.classList.add("memory-card");
+
+
+        card.innerHTML = `
+
+            <h3>
+                📍 ${memory.destination}
+            </h3>
+
+            <p>
+                📅 ${memory.date || "Unknown date"}
+            </p>
+
+            <p>
+                ${memory.story}
+            </p>
+
+            <button class="delete-btn" onclick="deleteMemory(${memory.id})">
+                Delete
+            </button>
+
+        `;
+
+
+        memoriesContainer.appendChild(card);
+
+
+    });
+
+
+    updateStatistics();
+
+}
+
+
+
+
+// DELETE MEMORY
+
+
+function deleteMemory(id){
+
+
+    memories = memories.filter(memory => memory.id !== id);
+
+
+    saveMemories();
+
+
+    displayMemories();
+
+
+}
+
+
+
+
+// UPDATE STATISTICS
+
+
+function updateStatistics(){
+
+
+    const destinations = memories.length;
+
+
+    document.getElementById("countryCount").textContent = destinations;
+
+
+    document.getElementById("memoryCount").textContent = destinations;
+
+
+    document.getElementById("journeyCount").textContent = destinations;
+
+
+}
+
+
+
+
+// INITIAL LOAD
+
+
+displayMemories();
+
+
+
+</script>
+
 
 </body>
 </html>
