@@ -52,7 +52,6 @@ header {
     z-index: 1000;
 }
 
-
 .navbar {
 
     max-width: 1200px;
@@ -75,31 +74,24 @@ header {
 
 }
 
-
 .logo {
 
     font-size: 1.4rem;
-
     font-weight: 700;
 
 }
 
-
 .nav-links {
 
     display:flex;
-
     list-style:none;
-
     gap:30px;
 
 }
 
-
 .nav-links a {
 
     font-weight:500;
-
     transition:.3s;
 
 }
@@ -111,40 +103,29 @@ header {
 
 }
 
-
 .menu-btn {
 
     display:none;
-
     background:none;
-
     font-size:25px;
 
 }
-
 
 
 /* =====================
    HERO
 ===================== */
 
-
 .hero {
 
     min-height:100vh;
-
     padding-top:140px;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     gap:50px;
 
 }
-
 
 .hero-content {
 
@@ -152,64 +133,47 @@ header {
 
 }
 
-
 .hero h1 {
 
     font-size:clamp(2.5rem,5vw,4.5rem);
-
     line-height:1.1;
-
     margin-bottom:25px;
 
 }
 
-
 .hero p {
 
     color:#64748b;
-
     font-size:1.15rem;
-
     margin-bottom:35px;
 
 }
 
-
-
 .primary-btn {
 
     display:inline-block;
-
     background:#2563eb;
-
     color:white;
 
     padding:15px 35px;
-
     border-radius:50px;
-
     font-weight:600;
-
     transition:.3s;
 
 }
 
-
 .primary-btn:hover {
 
     transform:translateY(-5px);
-
     box-shadow:
     0 15px 30px rgba(37,99,235,.3);
 
 }
 
 
-
 /* =====================
    GLOBE
 ===================== */
-
 
 .globe-wrapper {
 
@@ -217,21 +181,15 @@ header {
 
 }
 
-
 .globe {
 
     width:300px;
-
     height:300px;
-
     border-radius:50%;
-
     display:flex;
 
     align-items:center;
-
     justify-content:center;
-
     font-size:140px;
 
     background:
@@ -244,7 +202,6 @@ header {
     box-shadow:
     0 30px 70px rgba(37,99,235,.35);
 
-
     animation:floating 4s infinite ease-in-out;
 
 }
@@ -254,29 +211,22 @@ header {
 @keyframes floating {
 
     50% {
-
         transform:translateY(-20px);
-
     }
 
 }
 
-
 .pin {
 
     position:absolute;
-
     font-size:30px;
-
     animation:pulse 2s infinite;
 
 }
 
-
 .pin.one {
 
     top:40px;
-
     left:50px;
 
 }
@@ -285,7 +235,6 @@ header {
 .pin.two {
 
     right:40px;
-
     bottom:60px;
 
 }
@@ -294,7 +243,6 @@ header {
 .pin.three {
 
     top:120px;
-
     right:70px;
 
 }
@@ -303,30 +251,23 @@ header {
 @keyframes pulse {
 
     50% {
-
         transform:scale(1.2);
-
     }
-
+    
 }
-
 
 
 /* =====================
    SECTION TITLES
 ===================== */
 
-
 .section-title {
 
     text-align:center;
-
     font-size:2.3rem;
-
     margin-bottom:50px;
 
 }
-
 
 
 /* =====================
@@ -337,45 +278,33 @@ header {
 .category-section {
 
     background:#0f172a;
-
     color:white;
 
 }
 
-
 .categories {
 
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:30px;
-
     max-width:900px;
-
     margin:auto;
 
 }
 
-
 .category-card {
 
     background:white;
-
     color:#0f172a;
 
     padding:35px;
-
     border-radius:25px;
-
     text-align:center;
 
     transition:.3s;
-
     cursor:pointer;
 
 }
-
 
 .category-card:hover {
 
@@ -383,30 +312,24 @@ header {
 
 }
 
-
 .category-card.active {
 
     background:#2563eb;
-
     color:white;
 
 }
 
-
 .category-icon {
 
     font-size:45px;
-
     margin-bottom:20px;
 
 }
 
 
-
 /* =====================
    FORM
 ===================== */
-
 
 .form-section {
 
@@ -414,29 +337,22 @@ header {
 
 }
 
-
 .form-container {
 
     max-width:700px;
-
     margin:auto;
 
 }
 
-
 .dynamic-form {
 
     background:white;
-
     padding:35px;
-
     border-radius:25px;
-
     box-shadow:
     0 15px 40px rgba(0,0,0,.08);
 
 }
-
 
 .form-group {
 
@@ -444,13 +360,10 @@ header {
 
 }
 
-
 .form-group label {
 
     display:block;
-
     font-weight:600;
-
     margin-bottom:8px;
 
 }
@@ -461,44 +374,30 @@ header {
 .form-group select {
 
     width:100%;
-
     padding:13px 15px;
-
     border-radius:12px;
-
     border:1px solid #cbd5e1;
-
     font-size:1rem;
 
 }
 
-
 .form-group textarea {
 
     height:120px;
-
     resize:none;
 
 }
 
-
-
 .save-btn {
 
     width:100%;
-
     background:#2563eb;
-
     color:white;
-
     padding:15px;
-
     border-radius:30px;
-
     font-weight:600;
 
 }
-
 
 
 /* =====================
@@ -508,15 +407,12 @@ header {
 
 @media(max-width:900px) {
 
-
 .hero {
 
     flex-direction:column;
-
     text-align:center;
 
 }
-
 
 .categories {
 
@@ -524,23 +420,18 @@ header {
 
 }
 
-
 .globe {
 
     width:220px;
-
     height:220px;
-
     font-size:100px;
 
 }
-
 
 }
 
 
 @media(max-width:700px) {
-
 
 .nav-links {
 
@@ -548,13 +439,11 @@ header {
 
 }
 
-
 .menu-btn {
 
     display:block;
 
 }
-
 
 .navbar {
 
@@ -562,13 +451,11 @@ header {
 
 }
 
-
 section {
 
     padding:70px 5%;
 
 }
-
 
 }
 
@@ -591,39 +478,29 @@ section {
 .statistics {
 
     max-width: 900px;
-
     margin: 0 auto 60px;
-
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     gap: 30px;
 
 }
 
-
 .stat-box {
 
     background: rgba(255,255,255,0.8);
-
     backdrop-filter: blur(15px);
 
     padding: 35px;
-
     border-radius: 25px;
-
     text-align: center;
 
     box-shadow:
     0 20px 40px rgba(0,0,0,0.08);
 
     animation: fadeUp 0.8s ease forwards;
-
     transition: .3s;
 
 }
-
 
 .stat-box:hover {
 
@@ -631,167 +508,105 @@ section {
 
 }
 
-
-
 .stat-box strong {
 
     display:block;
-
     font-size:3.5rem;
-
     color:#2563eb;
-
     margin-bottom:10px;
 
 }
 
-
 .stat-box span {
 
     font-size:1.1rem;
-
     color:#475569;
 
 }
 
 
-
 /* Memories cards */
-
 
 .memories-grid {
 
     max-width:1000px;
-
     margin:auto;
-
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:30px;
 
 }
 
-
-
 .memory-card {
 
-
     background:white;
-
     padding:30px;
-
     border-radius:25px;
-
     box-shadow:
 
     0 15px 35px rgba(0,0,0,.08);
-
-
     animation: fadeUp .6s ease;
-
-
     transition:.3s;
 
-
 }
-
 
 .memory-card:hover {
 
-
     transform:translateY(-8px);
-
-
     box-shadow:
-
     0 25px 50px rgba(0,0,0,.12);
 
-
 }
-
-
 
 .memory-card h3 {
 
     font-size:1.4rem;
-
     margin-bottom:15px;
 
 }
 
-
-
 .memory-card p {
 
     color:#64748b;
-
     margin-bottom:10px;
-
     line-height:1.5;
 
 }
 
-
-
 .delete-btn {
 
-
     margin-top:15px;
-
-
     background:#ef4444;
-
-
     color:white;
 
-
     padding:10px 22px;
-
-
     border-radius:25px;
-
-
     transition:.3s;
 
-
 }
-
-
 
 .delete-btn:hover {
 
-
     background:#dc2626;
-
-
     transform:scale(1.05);
 
-
 }
-
 
 
 /* Animation */
 
-
 @keyframes fadeUp {
-
 
     from {
 
         opacity:0;
-
         transform:translateY(30px);
 
     }
 
-
     to {
 
         opacity:1;
-
         transform:translateY(0);
 
     }
@@ -800,12 +615,9 @@ section {
 
 
 
-
 /* Mobile */
 
-
 @media(max-width:900px){
-
 
 .statistics,
 .memories-grid {
@@ -832,44 +644,30 @@ section {
 🌍 JourneyCanvas
 </div>
 
-
 <ul class="nav-links">
-
 <li><a href="#home">Home</a></li>
-
 <li><a href="#categories">Categories</a></li>
-
 <li><a href="#add">Add</a></li>
-
 <li><a href="#journey">Journey</a></li>
-
 </ul>
-
 
 <button class="menu-btn">
 ☰
 </button>
 
-
 </nav>
-
 </header>
 
 
-
 <main>
-
-
+    
 <section class="hero" id="home">
-
-
+    
 <div class="hero-content">
-
 
 <h1>
 Every Journey Has A Story 🌎
 </h1>
-
 
 <p>
 Create your personal travel collection.
@@ -877,15 +675,11 @@ Save destinations, memories and adventures
 that make every journey special.
 </p>
 
-
 <a href="#categories" class="primary-btn">
 Start Exploring
 </a>
 
-
 </div>
-
-
 
 <div class="globe-wrapper">
 
@@ -911,22 +705,15 @@ Start Exploring
 
 
 </div>
-
-
 </section>
 
-
-
 <section class="category-section" id="categories">
-
 
 <h2 class="section-title">
 What do you want to add?
 </h2>
 
-
 <div class="categories">
-
 
 <div class="category-card" data-category="destination">
 
@@ -944,8 +731,6 @@ Places you visited or want to explore.
 
 </div>
 
-
-
 <div class="category-card" data-category="memory">
 
 <div class="category-icon">
@@ -962,8 +747,6 @@ Your special moments and stories.
 
 </div>
 
-
-
 <div class="category-card" data-category="adventure">
 
 <div class="category-icon">
@@ -979,25 +762,17 @@ Your exciting travel experiences.
 </p>
 
 </div>
-
-
 </div>
-
-
 </section>
 
 
-
 <section class="form-section" id="add">
-
 
 <h2 class="section-title">
 Add Your Journey
 </h2>
 
-
 <div class="form-container">
-
 
 <form class="dynamic-form" id="journeyForm">
 
@@ -1014,10 +789,7 @@ Choose a category first
 Save Journey
 </button>
 
-
 </form>
-
-
 </div>
 
 
@@ -1028,10 +800,7 @@ Save Journey
 Your Travel Journey
 </h2>
 
-
 <div class="statistics">
-
-
 <div class="stat-box">
 
 <strong id="destinationCount">
@@ -1043,8 +812,6 @@ Destinations
 </span>
 
 </div>
-
-
 
 <div class="stat-box">
 
@@ -1058,8 +825,6 @@ Memories
 
 </div>
 
-
-
 <div class="stat-box">
 
 <strong id="adventureCount">
@@ -1072,19 +837,12 @@ Adventures
 
 </div>
 
-
 </div>
-
-
-
 <div class="memories-grid" id="experiencesContainer">
 
 </div>
 
-
 </section>
-
-
 
 
 <section class="cta">
@@ -1094,13 +852,9 @@ Adventures
 Ready for your next adventure?
 </h2>
 
-
 <p style="text-align:center;color:#64748b;margin-bottom:30px;">
-
 Every destination becomes a story when you save it.
-
 </p>
-
 
 <div style="text-align:center;">
 
@@ -1109,25 +863,14 @@ Add New Experience
 </a>
 
 </div>
-
-
 </section>
-
 
 </main>
 
-
-
 <footer>
 
-<p>
-© 2026 JourneyCanvas | Built with HTML, CSS & JavaScript
-</p>
 
 </footer>
-
-
-
 
 <script>
 
@@ -1138,21 +881,14 @@ Add New Experience
 
 
 const categoryCards = document.querySelectorAll(".category-card");
-
 const formFields = document.getElementById("formFields");
-
 const journeyForm = document.getElementById("journeyForm");
-
 const experiencesContainer = document.getElementById("experiencesContainer");
 
-
 let selectedCategory = "";
-
 let experiences = JSON.parse(
     localStorage.getItem("journeyExperiences")
 ) || [];
-
-
 
 
 // ============================
@@ -1161,40 +897,22 @@ let experiences = JSON.parse(
 
 
 categoryCards.forEach(card => {
-
-
     card.addEventListener("click", () => {
-
-
         categoryCards.forEach(item => {
-
             item.classList.remove("active");
-
         });
 
-
         card.classList.add("active");
-
-
         selectedCategory = card.dataset.category;
-
-
         createForm(selectedCategory);
-
 
         document
         .getElementById("add")
         .scrollIntoView({
             behavior:"smooth"
         });
-
-
     });
-
-
 });
-
-
 
 
 // ============================
@@ -1203,10 +921,7 @@ categoryCards.forEach(card => {
 
 
 function createForm(category){
-
-
     if(category === "destination"){
-
 
         formFields.innerHTML = `
 
@@ -1223,8 +938,6 @@ function createForm(category){
 
         </div>
 
-
-
         <div class="form-group">
 
         <label>
@@ -1238,8 +951,6 @@ function createForm(category){
 
         </div>
 
-
-
         <div class="form-group">
 
         <label>
@@ -1251,8 +962,6 @@ function createForm(category){
         type="date">
 
         </div>
-
-
 
         <div class="form-group">
 
@@ -1266,20 +975,13 @@ function createForm(category){
         </textarea>
 
         </div>
-
         `;
-
-
     }
-
-
 
 
     if(category === "memory"){
 
-
         formFields.innerHTML = `
-
 
         <div class="form-group">
 
@@ -1334,23 +1036,13 @@ function createForm(category){
         </select>
 
         </div>
-
-
         `;
-
-
     }
-
-
-
 
 
     if(category === "adventure"){
 
-
-
         formFields.innerHTML = `
-
 
         <div class="form-group">
 
@@ -1358,37 +1050,26 @@ function createForm(category){
         Adventure Type
         </label>
 
-
         <select id="adventureType">
-
 
         <option>
         Hiking 🏔️
         </option>
 
-
         <option>
         Road Trip 🚗
         </option>
-
 
         <option>
         Diving 🌊
         </option>
 
-
         <option>
         Camping ⛺
         </option>
 
-
         </select>
-
-
         </div>
-
-
-
 
         <div class="form-group">
 
@@ -1397,35 +1078,24 @@ function createForm(category){
         Difficulty
         </label>
 
-
         <select id="difficulty">
-
 
         <option>
         Easy
         </option>
 
-
         <option>
         Medium
         </option>
-
 
         <option>
         Hard
         </option>
 
-
         </select>
-
-
         </div>
 
-
-
-
         <div class="form-group">
-
 
         <label>
         Description
@@ -1439,21 +1109,11 @@ function createForm(category){
         placeholder="Describe your adventure...">
 
         </textarea>
-
-
         </div>
 
-
         `;
-
-
     }
-
-
 }
-
-
-
 
 
 // ============================
@@ -1462,107 +1122,70 @@ function createForm(category){
 
 
 journeyForm.addEventListener("submit", function(event){
-
-
     event.preventDefault();
-
-
-
     if(selectedCategory === ""){
-
-
         alert("Please select a category first.");
-
         return;
-
     }
 
-
-
     let experience = {
-
         id: Date.now(),
-
         category:selectedCategory
-
     };
-
 
 
     if(selectedCategory === "destination"){
 
-
         experience.title =
         document.getElementById("city").value;
-
 
         experience.country =
         document.getElementById("country").value;
 
-
         experience.date =
         document.getElementById("visitDate").value;
-
 
         experience.description =
         document.getElementById("favoritePlace").value;
 
-
     }
 
-
-
     if(selectedCategory === "memory"){
-
 
         experience.title =
         document.getElementById("memoryTitle").value;
 
-
         experience.description =
         document.getElementById("memoryStory").value;
-
 
         experience.extra =
         document.getElementById("mood").value;
 
-
     }
 
-
-
     if(selectedCategory === "adventure"){
-
 
         experience.title =
         document.getElementById("adventureType").value;
 
-
         experience.description =
         document.getElementById("adventureDescription").value;
-
 
         experience.extra =
         document.getElementById("difficulty").value;
 
-
     }
-
 
 
     experiences.push(experience);
 
-
     saveExperiences();
-
-
     displayExperiences();
-
-
     journeyForm.reset();
 
 
 });
+    
 // ============================
 // LOCAL STORAGE
 // ============================
@@ -1578,67 +1201,43 @@ function saveExperiences(){
 }
 
 
-
 // ============================
 // DISPLAY EXPERIENCES
 // ============================
 
 
 function displayExperiences(){
-
-
     experiencesContainer.innerHTML = "";
-
-
     experiences.forEach(item => {
-
-
         const card = document.createElement("div");
-
 
         card.classList.add("memory-card");
 
-
-
         let icon = "";
-
         let categoryName = "";
-
-
 
         if(item.category === "destination"){
 
             icon = "🗺️";
-
             categoryName = "Destination";
-
         }
-
-
 
         if(item.category === "memory"){
 
             icon = "📸";
-
             categoryName = "Memory";
 
         }
 
-
-
         if(item.category === "adventure"){
 
             icon = "✈️";
-
             categoryName = "Adventure";
 
         }
 
 
-
-
         card.innerHTML = `
-
 
         <div style="
         font-size:14px;
@@ -1651,13 +1250,9 @@ function displayExperiences(){
 
         </div>
 
-
-
         <h3>
         ${item.title}
         </h3>
-
-
 
         ${
             item.country 
@@ -1669,8 +1264,6 @@ function displayExperiences(){
             ""
         }
 
-
-
         ${
             item.date
             ?
@@ -1680,8 +1273,6 @@ function displayExperiences(){
             :
             ""
         }
-
-
 
         ${
             item.extra
@@ -1693,15 +1284,11 @@ function displayExperiences(){
             ""
         }
 
-
-
         <p>
 
         ${item.description}
 
         </p>
-
-
 
         <button 
         class="delete-btn"
@@ -1711,26 +1298,13 @@ function displayExperiences(){
 
         </button>
 
-
         `;
 
-
-
         experiencesContainer.appendChild(card);
-
-
-
     });
 
-
-
     updateStatistics();
-
-
 }
-
-
-
 
 
 // ============================
@@ -1739,25 +1313,14 @@ function displayExperiences(){
 
 
 function deleteExperience(id){
-
-
     experiences = experiences.filter(item => {
-
         return item.id !== id;
-
     });
 
-
-
     saveExperiences();
-
-
     displayExperiences();
 
-
 }
-
-
 
 
 
@@ -1767,54 +1330,30 @@ function deleteExperience(id){
 
 
 function updateStatistics(){
-
-
-
     const destinations = experiences.filter(item => {
-
         return item.category === "destination";
-
     }).length;
-
-
 
 
     const memories = experiences.filter(item => {
-
         return item.category === "memory";
-
     }).length;
-
-
 
 
     const adventures = experiences.filter(item => {
-
         return item.category === "adventure";
-
     }).length;
-
-
 
 
     document.getElementById("destinationCount").textContent =
     destinations;
 
-
-
     document.getElementById("memoryCount").textContent =
     memories;
 
-
-
     document.getElementById("adventureCount").textContent =
     adventures;
-
-
-
 }
-
-
 
 
 // ============================
@@ -1823,49 +1362,24 @@ function updateStatistics(){
 
 
 const menuButton = document.querySelector(".menu-btn");
-
 const navLinks = document.querySelector(".nav-links");
 
-
-
 menuButton.addEventListener("click",()=>{
-
-
     if(navLinks.style.display === "flex"){
-
-
         navLinks.style.display = "none";
-
-
     } else {
-
-
         navLinks.style.display = "flex";
-
         navLinks.style.flexDirection = "column";
-
         navLinks.style.position = "absolute";
-
         navLinks.style.top = "70px";
-
         navLinks.style.right = "20px";
-
         navLinks.style.background = "white";
-
         navLinks.style.padding = "20px";
-
         navLinks.style.borderRadius = "20px";
-
         navLinks.style.boxShadow =
         "0 10px 30px rgba(0,0,0,.15)";
-
-
     }
-
-
 });
-
-
 
 
 
@@ -1875,7 +1389,6 @@ menuButton.addEventListener("click",()=>{
 
 
 displayExperiences();
-
 
 </script>
 
