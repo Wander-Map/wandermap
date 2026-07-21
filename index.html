@@ -6,7 +6,7 @@
 
 <title>JourneyCanvas | Your Travel Story</title>
 
-<meta name="description" content="JourneyCanvas - Create your personal travel map and save your unforgettable memories.">
+<meta name="description" content="JourneyCanvas - Create your personal travel story with destinations, memories and adventures.">
 
 <style>
 
@@ -32,25 +32,32 @@ a {
 }
 
 button {
-    cursor: pointer;
     border: none;
+    cursor: pointer;
+}
+
+section {
+    padding: 90px 8%;
 }
 
 
-/* =========================
+/* =====================
    NAVIGATION
-========================= */
+===================== */
 
 header {
     position: fixed;
-    width: 100%;
     top: 0;
+    width: 100%;
     z-index: 1000;
 }
 
+
 .navbar {
+
     max-width: 1200px;
     margin: 20px auto;
+
     padding: 18px 30px;
 
     display: flex;
@@ -58,142 +65,176 @@ header {
     align-items: center;
 
     background: rgba(255,255,255,0.75);
+
     backdrop-filter: blur(15px);
 
     border-radius: 20px;
 
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.08);
+
 }
+
 
 .logo {
+
     font-size: 1.4rem;
+
     font-weight: 700;
+
 }
+
 
 .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
+
+    display:flex;
+
+    list-style:none;
+
+    gap:30px;
+
 }
+
 
 .nav-links a {
-    font-weight: 500;
-    transition: 0.3s;
+
+    font-weight:500;
+
+    transition:.3s;
+
 }
+
 
 .nav-links a:hover {
-    color: #2563eb;
+
+    color:#2563eb;
+
 }
+
 
 .menu-btn {
-    display: none;
-    background: transparent;
-    font-size: 25px;
+
+    display:none;
+
+    background:none;
+
+    font-size:25px;
+
 }
 
 
-/* =========================
+
+/* =====================
    HERO
-========================= */
+===================== */
+
 
 .hero {
 
-    min-height: 100vh;
+    min-height:100vh;
 
-    padding: 140px 8% 80px;
+    padding-top:140px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display:flex;
 
-    gap: 50px;
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:50px;
+
 }
 
 
 .hero-content {
-    max-width: 600px;
+
+    max-width:600px;
+
 }
 
 
 .hero h1 {
 
-    font-size: clamp(2.5rem,5vw,4.5rem);
+    font-size:clamp(2.5rem,5vw,4.5rem);
 
-    line-height: 1.1;
+    line-height:1.1;
 
-    margin-bottom: 25px;
+    margin-bottom:25px;
 
 }
 
 
 .hero p {
 
-    font-size: 1.15rem;
+    color:#64748b;
 
-    color: #64748b;
+    font-size:1.15rem;
 
-    margin-bottom: 35px;
+    margin-bottom:35px;
 
 }
 
 
+
 .primary-btn {
 
-    display: inline-block;
+    display:inline-block;
 
-    background: #2563eb;
+    background:#2563eb;
 
-    color: white;
+    color:white;
 
-    padding: 15px 35px;
+    padding:15px 35px;
 
-    border-radius: 50px;
+    border-radius:50px;
 
-    font-weight: 600;
+    font-weight:600;
 
-    transition: 0.3s;
+    transition:.3s;
 
 }
 
 
 .primary-btn:hover {
 
-    transform: translateY(-5px);
+    transform:translateY(-5px);
 
-    box-shadow: 0 15px 30px rgba(37,99,235,.3);
+    box-shadow:
+    0 15px 30px rgba(37,99,235,.3);
 
 }
 
 
-/* =========================
+
+/* =====================
    GLOBE
-========================= */
+===================== */
+
 
 .globe-wrapper {
 
-    position: relative;
+    position:relative;
 
 }
 
 
 .globe {
 
-    width: 300px;
+    width:300px;
 
-    height: 300px;
+    height:300px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
     display:flex;
 
-    justify-content:center;
-
     align-items:center;
+
+    justify-content:center;
 
     font-size:140px;
 
     background:
-
     linear-gradient(
         135deg,
         #38bdf8,
@@ -201,19 +242,20 @@ header {
     );
 
     box-shadow:
-
     0 30px 70px rgba(37,99,235,.35);
 
-    animation: floating 4s infinite ease-in-out;
+
+    animation:floating 4s infinite ease-in-out;
 
 }
+
 
 
 @keyframes floating {
 
     50% {
 
-        transform: translateY(-20px);
+        transform:translateY(-20px);
 
     }
 
@@ -242,9 +284,9 @@ header {
 
 .pin.two {
 
-    bottom:60px;
-
     right:40px;
+
+    bottom:60px;
 
 }
 
@@ -253,7 +295,7 @@ header {
 
     top:120px;
 
-    right:60px;
+    right:70px;
 
 }
 
@@ -270,16 +312,9 @@ header {
 
 
 
-/* =========================
-   SECTIONS
-========================= */
-
-
-section {
-
-    padding:90px 8%;
-
-}
+/* =====================
+   SECTION TITLES
+===================== */
 
 
 .section-title {
@@ -294,69 +329,12 @@ section {
 
 
 
-/* =========================
-   FEATURES
-========================= */
+/* =====================
+   CATEGORY SELECTOR
+===================== */
 
 
-.features-grid {
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
-
-}
-
-
-.feature-card {
-
-    background:white;
-
-    padding:35px;
-
-    border-radius:25px;
-
-    text-align:center;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.07);
-
-    transition:.3s;
-
-}
-
-
-.feature-card:hover {
-
-    transform:translateY(-10px);
-
-}
-
-
-.feature-icon {
-
-    font-size:45px;
-
-    margin-bottom:20px;
-
-}
-
-
-.feature-card p {
-
-    color:#64748b;
-
-}
-
-
-
-/* =========================
-   MEMORY FORM
-========================= */
-
-
-.memory-section {
+.category-section {
 
     background:#0f172a;
 
@@ -365,16 +343,22 @@ section {
 }
 
 
-.memory-container {
+.categories {
 
-    max-width:700px;
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    max-width:900px;
 
     margin:auto;
 
 }
 
 
-.memory-form {
+.category-card {
 
     background:white;
 
@@ -384,33 +368,101 @@ section {
 
     border-radius:25px;
 
+    text-align:center;
+
+    transition:.3s;
+
+    cursor:pointer;
+
 }
 
 
-.input-group {
+.category-card:hover {
+
+    transform:translateY(-10px);
+
+}
+
+
+.category-card.active {
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+.category-icon {
+
+    font-size:45px;
 
     margin-bottom:20px;
 
 }
 
 
-.input-group label {
 
-    display:block;
+/* =====================
+   FORM
+===================== */
 
-    margin-bottom:8px;
 
-    font-weight:600;
+.form-section {
+
+    background:#f1f5f9;
 
 }
 
 
-.input-group input,
-.input-group textarea {
+.form-container {
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+
+.dynamic-form {
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.08);
+
+}
+
+
+.form-group {
+
+    margin-bottom:20px;
+
+}
+
+
+.form-group label {
+
+    display:block;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+
+.form-group input,
+.form-group textarea,
+.form-group select {
 
     width:100%;
 
-    padding:12px 15px;
+    padding:13px 15px;
 
     border-radius:12px;
 
@@ -421,24 +473,25 @@ section {
 }
 
 
-.input-group textarea {
-
-    resize:none;
+.form-group textarea {
 
     height:120px;
 
+    resize:none;
+
 }
+
 
 
 .save-btn {
 
     width:100%;
 
-    padding:15px;
-
     background:#2563eb;
 
     color:white;
+
+    padding:15px;
 
     border-radius:30px;
 
@@ -448,123 +501,9 @@ section {
 
 
 
-/* =========================
-   MEMORIES
-========================= */
-
-
-.memories-grid {
-
-    margin-top:50px;
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:25px;
-
-}
-
-
-.memory-card {
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:20px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-}
-
-
-.memory-card h3 {
-
-    margin-bottom:10px;
-
-}
-
-
-.memory-card p {
-
-    color:#64748b;
-
-}
-
-
-.delete-btn {
-
-    margin-top:15px;
-
-    background:#ef4444;
-
-    color:white;
-
-    padding:8px 18px;
-
-    border-radius:20px;
-
-}
-
-
-
-/* =========================
-   STATISTICS
-========================= */
-
-
-.statistics {
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
-
-    text-align:center;
-
-}
-
-
-.stat-box strong {
-
-    display:block;
-
-    font-size:3rem;
-
-}
-
-
-.stat-box span {
-
-    color:#64748b;
-
-}
-
-
-
-/* =========================
-   FOOTER
-========================= */
-
-
-footer {
-
-    background:#020617;
-
-    color:white;
-
-    text-align:center;
-
-    padding:25px;
-
-}
-
-
-/* =========================
-   MOBILE
-========================= */
+/* =====================
+   RESPONSIVE
+===================== */
 
 
 @media(max-width:900px) {
@@ -579,9 +518,7 @@ footer {
 }
 
 
-.features-grid,
-.memories-grid,
-.statistics {
+.categories {
 
     grid-template-columns:1fr;
 
@@ -597,6 +534,7 @@ footer {
     font-size:100px;
 
 }
+
 
 }
 
@@ -637,7 +575,9 @@ section {
 </style>
 
 </head>
+
 <body>
+
 
 <header>
 
@@ -647,176 +587,194 @@ section {
 🌍 JourneyCanvas
 </div>
 
+
 <ul class="nav-links">
 
 <li><a href="#home">Home</a></li>
-<li><a href="#features">Features</a></li>
-<li><a href="#memory">Add Memory</a></li>
+
+<li><a href="#categories">Categories</a></li>
+
+<li><a href="#add">Add</a></li>
+
 <li><a href="#journey">Journey</a></li>
 
 </ul>
 
+
 <button class="menu-btn">
 ☰
 </button>
+
 
 </nav>
 
 </header>
 
 
+
 <main>
+
 
 <section class="hero" id="home">
 
+
 <div class="hero-content">
+
 
 <h1>
 Every Journey Has A Story 🌎
 </h1>
 
+
 <p>
-Create your personal travel map, save memories,
-and transform every destination into a story.
+Create your personal travel collection.
+Save destinations, memories and adventures
+that make every journey special.
 </p>
 
-<a href="#memory" class="primary-btn">
+
+<a href="#categories" class="primary-btn">
 Start Exploring
 </a>
+
 
 </div>
 
 
+
 <div class="globe-wrapper">
+
 
 <div class="globe">
 🌍
 </div>
 
-<span class="pin one">📍</span>
-<span class="pin two">📍</span>
-<span class="pin three">📍</span>
+
+<span class="pin one">
+📍
+</span>
+
+
+<span class="pin two">
+📍
+</span>
+
+
+<span class="pin three">
+📍
+</span>
+
 
 </div>
+
 
 </section>
 
 
-<section id="features">
+
+<section class="category-section" id="categories">
+
 
 <h2 class="section-title">
-Your Journey, Your Story
+What do you want to add?
 </h2>
 
 
-<div class="features-grid">
+<div class="categories">
 
-<div class="feature-card">
 
-<div class="feature-icon">
+<div class="category-card" data-category="destination">
+
+<div class="category-icon">
 🗺️
 </div>
 
 <h3>
-Interactive Map
+Destination
 </h3>
 
 <p>
-Save destinations and create your personal travel collection.
+Places you visited or want to explore.
 </p>
 
 </div>
 
 
-<div class="feature-card">
 
-<div class="feature-icon">
+<div class="category-card" data-category="memory">
+
+<div class="category-icon">
 📸
 </div>
 
 <h3>
-Save Memories
+Memory
 </h3>
 
 <p>
-Store your favorite travel moments and stories.
+Your special moments and stories.
 </p>
 
 </div>
 
 
-<div class="feature-card">
 
-<div class="feature-icon">
+<div class="category-card" data-category="adventure">
+
+<div class="category-icon">
 ✈️
 </div>
 
 <h3>
-Track Adventures
+Adventure
 </h3>
 
 <p>
-Follow your journey and see your travel progress.
+Your exciting travel experiences.
 </p>
 
 </div>
 
+
 </div>
+
 
 </section>
 
 
-<section class="memory-section" id="memory">
+
+<section class="form-section" id="add">
+
 
 <h2 class="section-title">
-Add New Memory
+Add Your Journey
 </h2>
 
-<div class="memory-container">
 
-<form class="memory-form" id="memoryForm">
-
-<div class="input-group">
-
-<label>
-Destination
-</label>
-
-<input id="destination" type="text" placeholder="Example: Paris">
-
-</div>
+<div class="form-container">
 
 
-<div class="input-group">
+<form class="dynamic-form" id="journeyForm">
 
-<label>
-Date
-</label>
+<div id="formFields">
 
-<input id="date" type="date">
+<p style="text-align:center;color:#64748b;">
+Choose a category first
+</p>
 
 </div>
 
 
-<div class="input-group">
-
-<label>
-Your Story
-</label>
-
-<textarea id="story" placeholder="Write your memory..."></textarea>
-
-</div>
-
-
-<button class="save-btn">
-Save Memory
+<button class="save-btn" type="submit">
+Save Journey
 </button>
 
 
 </form>
 
+
 </div>
+
 
 </section>
 <section id="journey">
@@ -825,50 +783,94 @@ Save Memory
 Your Travel Journey
 </h2>
 
+
 <div class="statistics">
 
-<div class="stat-box">
-<strong id="countryCount">0</strong>
-<span>Destinations</span>
-</div>
 
 <div class="stat-box">
-<strong id="memoryCount">0</strong>
-<span>Memories</span>
+
+<strong id="destinationCount">
+0
+</strong>
+
+<span>
+Destinations
+</span>
+
 </div>
+
+
 
 <div class="stat-box">
-<strong id="journeyCount">0</strong>
-<span>Adventures</span>
-</div>
+
+<strong id="memoryCount">
+0
+</strong>
+
+<span>
+Memories
+</span>
 
 </div>
 
 
-<div class="memories-grid" id="memoriesContainer"></div>
+
+<div class="stat-box">
+
+<strong id="adventureCount">
+0
+</strong>
+
+<span>
+Adventures
+</span>
+
+</div>
+
+
+</div>
+
+
+
+<div class="memories-grid" id="experiencesContainer">
+
+</div>
+
 
 </section>
 
 
+
+
 <section class="cta">
+
 
 <h2 class="section-title">
 Ready for your next adventure?
 </h2>
 
-<p style="text-align:center; margin-bottom:30px; color:#64748b;">
-Start collecting your memories and create your own travel story.
+
+<p style="text-align:center;color:#64748b;margin-bottom:30px;">
+
+Every destination becomes a story when you save it.
+
 </p>
 
+
 <div style="text-align:center;">
-<a href="#memory" class="primary-btn">
-Create Memory
+
+<a href="#categories" class="primary-btn">
+Add New Experience
 </a>
+
 </div>
+
 
 </section>
 
+
 </main>
+
 
 
 <footer>
@@ -881,147 +883,469 @@ Create Memory
 
 
 
+
 <script>
 
 
-// =========================
-// MOBILE MENU
-// =========================
+// ============================
+// VARIABLES
+// ============================
 
 
-const menuButton = document.querySelector(".menu-btn");
-const navigation = document.querySelector(".nav-links");
+const categoryCards = document.querySelectorAll(".category-card");
+
+const formFields = document.getElementById("formFields");
+
+const journeyForm = document.getElementById("journeyForm");
+
+const experiencesContainer = document.getElementById("experiencesContainer");
 
 
-menuButton.addEventListener("click", () => {
+let selectedCategory = "";
 
-    if(navigation.style.display === "flex") {
+let experiences = JSON.parse(
+    localStorage.getItem("journeyExperiences")
+) || [];
 
-        navigation.style.display = "none";
 
-    } else {
 
-        navigation.style.display = "flex";
 
-        navigation.style.flexDirection = "column";
+// ============================
+// CATEGORY SELECTION
+// ============================
 
-        navigation.style.position = "absolute";
 
-        navigation.style.top = "70px";
+categoryCards.forEach(card => {
 
-        navigation.style.right = "20px";
 
-        navigation.style.background = "white";
+    card.addEventListener("click", () => {
 
-        navigation.style.padding = "20px";
 
-        navigation.style.borderRadius = "20px";
+        categoryCards.forEach(item => {
 
-        navigation.style.boxShadow = "0 10px 30px rgba(0,0,0,.1)";
+            item.classList.remove("active");
 
-    }
+        });
+
+
+        card.classList.add("active");
+
+
+        selectedCategory = card.dataset.category;
+
+
+        createForm(selectedCategory);
+
+
+        document
+        .getElementById("add")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+
+    });
+
 
 });
 
 
 
 
-// =========================
-// MEMORY SYSTEM
-// =========================
+// ============================
+// DYNAMIC FORM CREATION
+// ============================
 
 
-const form = document.getElementById("memoryForm");
-
-const destinationInput = document.getElementById("destination");
-
-const dateInput = document.getElementById("date");
-
-const storyInput = document.getElementById("story");
+function createForm(category){
 
 
-const memoriesContainer = document.getElementById("memoriesContainer");
+    if(category === "destination"){
 
 
-let memories = JSON.parse(localStorage.getItem("journeyMemories")) || [];
+        formFields.innerHTML = `
+
+        <div class="form-group">
+
+        <label>
+        Country
+        </label>
+
+        <input 
+        id="country"
+        type="text"
+        placeholder="Example: Armenia">
+
+        </div>
 
 
 
+        <div class="form-group">
 
-// SAVE MEMORY
+        <label>
+        City
+        </label>
 
+        <input
+        id="city"
+        type="text"
+        placeholder="Example: Yerevan">
 
-form.addEventListener("submit", function(event){
-
-    event.preventDefault();
-
-
-    const memory = {
-
-        id: Date.now(),
-
-        destination: destinationInput.value,
-
-        date: dateInput.value,
-
-        story: storyInput.value
-
-    };
+        </div>
 
 
-    if(memory.destination === "" || memory.story === "") {
 
-        alert("Please fill destination and story.");
+        <div class="form-group">
 
-        return;
+        <label>
+        Visit Date
+        </label>
+
+        <input
+        id="visitDate"
+        type="date">
+
+        </div>
+
+
+
+        <div class="form-group">
+
+        <label>
+        Favorite Place
+        </label>
+
+        <textarea
+        id="favoritePlace"
+        placeholder="What did you like the most?">
+        </textarea>
+
+        </div>
+
+        `;
+
 
     }
 
 
-    memories.push(memory);
 
 
-    saveMemories();
+    if(category === "memory"){
 
 
-    form.reset();
+        formFields.innerHTML = `
 
 
-    displayMemories();
+        <div class="form-group">
 
-});
+        <label>
+        Memory Title
+        </label>
+
+        <input
+        id="memoryTitle"
+        type="text"
+        placeholder="Example: Sunset in Paris">
+
+        </div>
+
+
+
+        <div class="form-group">
+
+        <label>
+        Story
+        </label>
+
+        <textarea
+        id="memoryStory"
+        placeholder="Write your memory...">
+        </textarea>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+        <label>
+        Mood
+        </label>
+
+        <select id="mood">
+
+        <option>
+        Amazing ❤️
+        </option>
+
+        <option>
+        Happy 😊
+        </option>
+
+        <option>
+        Relaxing 😌
+        </option>
+
+        </select>
+
+        </div>
+
+
+        `;
+
+
+    }
 
 
 
 
-// SAVE TO LOCAL STORAGE
+
+    if(category === "adventure"){
 
 
-function saveMemories(){
 
-    localStorage.setItem(
+        formFields.innerHTML = `
 
-        "journeyMemories",
 
-        JSON.stringify(memories)
+        <div class="form-group">
 
-    );
+        <label>
+        Adventure Type
+        </label>
+
+
+        <select id="adventureType">
+
+
+        <option>
+        Hiking 🏔️
+        </option>
+
+
+        <option>
+        Road Trip 🚗
+        </option>
+
+
+        <option>
+        Diving 🌊
+        </option>
+
+
+        <option>
+        Camping ⛺
+        </option>
+
+
+        </select>
+
+
+        </div>
+
+
+
+
+        <div class="form-group">
+
+
+        <label>
+        Difficulty
+        </label>
+
+
+        <select id="difficulty">
+
+
+        <option>
+        Easy
+        </option>
+
+
+        <option>
+        Medium
+        </option>
+
+
+        <option>
+        Hard
+        </option>
+
+
+        </select>
+
+
+        </div>
+
+
+
+
+        <div class="form-group">
+
+
+        <label>
+        Description
+        </label>
+
+
+        <textarea
+
+        id="adventureDescription"
+
+        placeholder="Describe your adventure...">
+
+        </textarea>
+
+
+        </div>
+
+
+        `;
+
+
+    }
+
 
 }
 
 
 
 
-// DISPLAY MEMORIES
+
+// ============================
+// SAVE EXPERIENCE
+// ============================
 
 
-function displayMemories(){
+journeyForm.addEventListener("submit", function(event){
 
 
-    memoriesContainer.innerHTML = "";
+    event.preventDefault();
 
 
-    memories.forEach(memory => {
+
+    if(selectedCategory === ""){
+
+
+        alert("Please select a category first.");
+
+        return;
+
+    }
+
+
+
+    let experience = {
+
+        id: Date.now(),
+
+        category:selectedCategory
+
+    };
+
+
+
+    if(selectedCategory === "destination"){
+
+
+        experience.title =
+        document.getElementById("city").value;
+
+
+        experience.country =
+        document.getElementById("country").value;
+
+
+        experience.date =
+        document.getElementById("visitDate").value;
+
+
+        experience.description =
+        document.getElementById("favoritePlace").value;
+
+
+    }
+
+
+
+    if(selectedCategory === "memory"){
+
+
+        experience.title =
+        document.getElementById("memoryTitle").value;
+
+
+        experience.description =
+        document.getElementById("memoryStory").value;
+
+
+        experience.extra =
+        document.getElementById("mood").value;
+
+
+    }
+
+
+
+    if(selectedCategory === "adventure"){
+
+
+        experience.title =
+        document.getElementById("adventureType").value;
+
+
+        experience.description =
+        document.getElementById("adventureDescription").value;
+
+
+        experience.extra =
+        document.getElementById("difficulty").value;
+
+
+    }
+
+
+
+    experiences.push(experience);
+
+
+    saveExperiences();
+
+
+    displayExperiences();
+
+
+    journeyForm.reset();
+
+
+});
+// ============================
+// LOCAL STORAGE
+// ============================
+
+
+function saveExperiences(){
+
+    localStorage.setItem(
+        "journeyExperiences",
+        JSON.stringify(experiences)
+    );
+
+}
+
+
+
+// ============================
+// DISPLAY EXPERIENCES
+// ============================
+
+
+function displayExperiences(){
+
+
+    experiencesContainer.innerHTML = "";
+
+
+    experiences.forEach(item => {
 
 
         const card = document.createElement("div");
@@ -1030,76 +1354,217 @@ function displayMemories(){
         card.classList.add("memory-card");
 
 
+
+        let icon = "";
+
+        let categoryName = "";
+
+
+
+        if(item.category === "destination"){
+
+            icon = "🗺️";
+
+            categoryName = "Destination";
+
+        }
+
+
+
+        if(item.category === "memory"){
+
+            icon = "📸";
+
+            categoryName = "Memory";
+
+        }
+
+
+
+        if(item.category === "adventure"){
+
+            icon = "✈️";
+
+            categoryName = "Adventure";
+
+        }
+
+
+
+
         card.innerHTML = `
 
-            <h3>
-                📍 ${memory.destination}
-            </h3>
 
-            <p>
-                📅 ${memory.date || "Unknown date"}
-            </p>
+        <div style="
+        font-size:14px;
+        margin-bottom:10px;
+        color:#2563eb;
+        font-weight:600;
+        ">
 
-            <p>
-                ${memory.story}
-            </p>
+        ${icon} ${categoryName}
 
-            <button class="delete-btn" onclick="deleteMemory(${memory.id})">
-                Delete
-            </button>
+        </div>
+
+
+
+        <h3>
+        ${item.title}
+        </h3>
+
+
+
+        ${
+            item.country 
+            ?
+            `<p>
+            🌍 ${item.country}
+            </p>`
+            :
+            ""
+        }
+
+
+
+        ${
+            item.date
+            ?
+            `<p>
+            📅 ${item.date}
+            </p>`
+            :
+            ""
+        }
+
+
+
+        ${
+            item.extra
+            ?
+            `<p>
+            ⭐ ${item.extra}
+            </p>`
+            :
+            ""
+        }
+
+
+
+        <p>
+
+        ${item.description}
+
+        </p>
+
+
+
+        <button 
+        class="delete-btn"
+        onclick="deleteExperience(${item.id})">
+
+        Delete
+
+        </button>
+
 
         `;
 
 
-        memoriesContainer.appendChild(card);
+
+        experiencesContainer.appendChild(card);
+
 
 
     });
 
 
+
     updateStatistics();
 
-}
-
-
-
-
-// DELETE MEMORY
-
-
-function deleteMemory(id){
-
-
-    memories = memories.filter(memory => memory.id !== id);
-
-
-    saveMemories();
-
-
-    displayMemories();
-
 
 }
 
 
 
 
+
+// ============================
+// DELETE EXPERIENCE
+// ============================
+
+
+function deleteExperience(id){
+
+
+    experiences = experiences.filter(item => {
+
+        return item.id !== id;
+
+    });
+
+
+
+    saveExperiences();
+
+
+    displayExperiences();
+
+
+}
+
+
+
+
+
+// ============================
 // UPDATE STATISTICS
+// ============================
 
 
 function updateStatistics(){
 
 
-    const destinations = memories.length;
+
+    const destinations = experiences.filter(item => {
+
+        return item.category === "destination";
+
+    }).length;
 
 
-    document.getElementById("countryCount").textContent = destinations;
 
 
-    document.getElementById("memoryCount").textContent = destinations;
+    const memories = experiences.filter(item => {
+
+        return item.category === "memory";
+
+    }).length;
 
 
-    document.getElementById("journeyCount").textContent = destinations;
+
+
+    const adventures = experiences.filter(item => {
+
+        return item.category === "adventure";
+
+    }).length;
+
+
+
+
+    document.getElementById("destinationCount").textContent =
+    destinations;
+
+
+
+    document.getElementById("memoryCount").textContent =
+    memories;
+
+
+
+    document.getElementById("adventureCount").textContent =
+    adventures;
+
 
 
 }
@@ -1107,11 +1572,64 @@ function updateStatistics(){
 
 
 
-// INITIAL LOAD
+// ============================
+// MOBILE MENU
+// ============================
 
 
-displayMemories();
+const menuButton = document.querySelector(".menu-btn");
 
+const navLinks = document.querySelector(".nav-links");
+
+
+
+menuButton.addEventListener("click",()=>{
+
+
+    if(navLinks.style.display === "flex"){
+
+
+        navLinks.style.display = "none";
+
+
+    } else {
+
+
+        navLinks.style.display = "flex";
+
+        navLinks.style.flexDirection = "column";
+
+        navLinks.style.position = "absolute";
+
+        navLinks.style.top = "70px";
+
+        navLinks.style.right = "20px";
+
+        navLinks.style.background = "white";
+
+        navLinks.style.padding = "20px";
+
+        navLinks.style.borderRadius = "20px";
+
+        navLinks.style.boxShadow =
+        "0 10px 30px rgba(0,0,0,.15)";
+
+
+    }
+
+
+});
+
+
+
+
+
+// ============================
+// FIRST LOAD
+// ============================
+
+
+displayExperiences();
 
 
 </script>
