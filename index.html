@@ -24,6 +24,12 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
     background: #f8fafc;
     color: #0f172a;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background: #0f172a;
+    color: #e2e8f0;
 }
 
 a {
@@ -42,6 +48,71 @@ section {
 
 
 /* =====================
+   TOAST NOTIFICATIONS
+===================== */
+
+.toast-container {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideIn 0.4s ease, fadeOut 0.4s ease 2.6s forwards;
+    min-width: 280px;
+    font-weight: 500;
+}
+
+body.dark-mode .toast {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+.toast.success { border-left: 5px solid #22c55e; }
+.toast.error { border-left: 5px solid #ef4444; }
+.toast.info { border-left: 5px solid #2563eb; }
+
+@keyframes slideIn {
+    from { transform: translateX(400px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    to { transform: translateX(400px); opacity: 0; }
+}
+
+
+/* =====================
+   CONFETTI
+===================== */
+
+.confetti-piece {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+
+/* =====================
    NAVIGATION
 ===================== */
 
@@ -53,62 +124,63 @@ header {
 }
 
 .navbar {
-
     max-width: 1200px;
     margin: 20px auto;
-
     padding: 18px 30px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     background: rgba(255,255,255,0.75);
-
     backdrop-filter: blur(15px);
-
     border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+}
 
-    box-shadow:
-    0 15px 40px rgba(0,0,0,.08);
-
+body.dark-mode .navbar {
+    background: rgba(30,41,59,0.8);
+    box-shadow: 0 15px 40px rgba(0,0,0,.3);
 }
 
 .logo {
-
     font-size: 1.4rem;
     font-weight: 700;
-
 }
 
 .nav-links {
-
     display:flex;
     list-style:none;
     gap:30px;
-
+    align-items: center;
 }
 
 .nav-links a {
-
     font-weight:500;
     transition:.3s;
-
 }
 
-
 .nav-links a:hover {
-
     color:#2563eb;
+}
 
+.theme-toggle {
+    background: none;
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 50%;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    background: rgba(37,99,235,0.1);
+    transform: rotate(20deg);
 }
 
 .menu-btn {
-
     display:none;
     background:none;
     font-size:25px;
-
+    cursor: pointer;
 }
 
 
@@ -117,57 +189,47 @@ header {
 ===================== */
 
 .hero {
-
     min-height:100vh;
     padding-top:140px;
     display:flex;
     justify-content:space-between;
     align-items:center;
     gap:50px;
-
 }
 
 .hero-content {
-
     max-width:600px;
-
 }
 
 .hero h1 {
-
     font-size:clamp(2.5rem,5vw,4.5rem);
     line-height:1.1;
     margin-bottom:25px;
-
 }
 
 .hero p {
-
     color:#64748b;
     font-size:1.15rem;
     margin-bottom:35px;
+}
 
+body.dark-mode .hero p {
+    color: #94a3b8;
 }
 
 .primary-btn {
-
     display:inline-block;
     background:#2563eb;
     color:white;
-
     padding:15px 35px;
     border-radius:50px;
     font-weight:600;
     transition:.3s;
-
 }
 
 .primary-btn:hover {
-
     transform:translateY(-5px);
-    box-shadow:
-    0 15px 30px rgba(37,99,235,.3);
-
+    box-shadow: 0 15px 30px rgba(37,99,235,.3);
 }
 
 
@@ -176,84 +238,95 @@ header {
 ===================== */
 
 .globe-wrapper {
-
     position:relative;
-
 }
 
 .globe {
-
     width:300px;
     height:300px;
     border-radius:50%;
     display:flex;
-
     align-items:center;
     justify-content:center;
     font-size:140px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #38bdf8,
-        #2563eb
-    );
-
-    box-shadow:
-    0 30px 70px rgba(37,99,235,.35);
-
+    background: linear-gradient(135deg, #38bdf8, #2563eb);
+    box-shadow: 0 30px 70px rgba(37,99,235,.35);
     animation:floating 4s infinite ease-in-out;
-
 }
 
-
-
 @keyframes floating {
-
-    50% {
-        transform:translateY(-20px);
-    }
-
+    50% { transform:translateY(-20px); }
 }
 
 .pin {
-
     position:absolute;
     font-size:30px;
     animation:pulse 2s infinite;
-
 }
 
-.pin.one {
-
-    top:40px;
-    left:50px;
-
-}
-
-
-.pin.two {
-
-    right:40px;
-    bottom:60px;
-
-}
-
-
-.pin.three {
-
-    top:120px;
-    right:70px;
-
-}
-
+.pin.one { top:40px; left:50px; }
+.pin.two { right:40px; bottom:60px; }
+.pin.three { top:120px; right:70px; }
 
 @keyframes pulse {
+    50% { transform:scale(1.2); }
+}
 
-    50% {
-        transform:scale(1.2);
-    }
-    
+
+/* =====================
+   FEATURES SECTION
+===================== */
+
+.features-section {
+    background: #ffffff;
+}
+
+body.dark-mode .features-section {
+    background: #1e293b;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.feature-card {
+    background: #f8fafc;
+    padding: 35px;
+    border-radius: 25px;
+    text-align: center;
+    transition: .3s;
+}
+
+body.dark-mode .feature-card {
+    background: #0f172a;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.feature-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.feature-card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+body.dark-mode .feature-card p {
+    color: #94a3b8;
 }
 
 
@@ -262,11 +335,9 @@ header {
 ===================== */
 
 .section-title {
-
     text-align:center;
     font-size:2.3rem;
     margin-bottom:50px;
-
 }
 
 
@@ -274,56 +345,42 @@ header {
    CATEGORY SELECTOR
 ===================== */
 
-
 .category-section {
-
     background:#0f172a;
     color:white;
-
 }
 
 .categories {
-
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:30px;
     max-width:900px;
     margin:auto;
-
 }
 
 .category-card {
-
     background:white;
     color:#0f172a;
-
     padding:35px;
     border-radius:25px;
     text-align:center;
-
     transition:.3s;
     cursor:pointer;
-
 }
 
 .category-card:hover {
-
     transform:translateY(-10px);
-
 }
 
 .category-card.active {
-
     background:#2563eb;
     color:white;
-
+    box-shadow: 0 20px 50px rgba(37,99,235,0.4);
 }
 
 .category-icon {
-
     font-size:45px;
     margin-bottom:20px;
-
 }
 
 
@@ -332,71 +389,213 @@ header {
 ===================== */
 
 .form-section {
-
     background:#f1f5f9;
+}
 
+body.dark-mode .form-section {
+    background: #1e293b;
 }
 
 .form-container {
-
     max-width:700px;
     margin:auto;
-
 }
 
 .dynamic-form {
-
     background:white;
     padding:35px;
     border-radius:25px;
-    box-shadow:
-    0 15px 40px rgba(0,0,0,.08);
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+}
 
+body.dark-mode .dynamic-form {
+    background: #0f172a;
+    box-shadow: 0 15px 40px rgba(0,0,0,.3);
 }
 
 .form-group {
-
     margin-bottom:20px;
-
 }
 
 .form-group label {
-
     display:block;
     font-weight:600;
     margin-bottom:8px;
-
 }
-
 
 .form-group input,
 .form-group textarea,
 .form-group select {
-
     width:100%;
     padding:13px 15px;
     border-radius:12px;
     border:1px solid #cbd5e1;
     font-size:1rem;
+    transition: .3s;
+    background: white;
+    color: #0f172a;
+}
 
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea,
+body.dark-mode .form-group select {
+    background: #1e293b;
+    color: #e2e8f0;
+    border-color: #475569;
 }
 
 .form-group textarea {
-
     height:120px;
     resize:none;
+}
 
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+
+.form-group input.error,
+.form-group textarea.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239,68,68,0.1);
+    animation: shake 0.4s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    font-weight: 500;
 }
 
 .save-btn {
-
     width:100%;
     background:#2563eb;
     color:white;
     padding:15px;
     border-radius:30px;
     font-weight:600;
+    transition: .3s;
+}
 
+.save-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+
+/* =====================
+   EMPTY STATE
+===================== */
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeIn 0.8s ease;
+}
+
+.empty-state-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.empty-state h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.dark-mode .empty-state h3 {
+    background: linear-gradient(135deg, #60a5fa, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.empty-state p {
+    color: #64748b;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.empty-state .hint {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: rgba(37,99,235,0.08);
+    border-radius: 15px;
+    display: inline-block;
+    font-weight: 500;
+    color: #2563eb;
+    text-decoration: none;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.empty-state .hint:hover {
+    background: rgba(37,99,235,0.15);
+    transform: translateY(-2px);
+}
+
+body.dark-mode .empty-state .hint {
+    background: rgba(59,130,246,0.15);
+    color: #60a5fa;
+}
+
+body.dark-mode .empty-state .hint:hover {
+    background: rgba(59,130,246,0.25);
+}
+
+
+/* =====================
+   INSPIRATION SECTION
+===================== */
+
+.inspiration-section {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+    text-align: center;
+    padding: 100px 8%;
+}
+
+.inspiration-content h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.inspiration-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 35px;
+}
+
+.inspiration-content .primary-btn {
+    background: white;
+    color: #2563eb;
+}
+
+.inspiration-content .primary-btn:hover {
+    background: #f1f5f9;
 }
 
 
@@ -404,229 +603,189 @@ header {
    RESPONSIVE
 ===================== */
 
-
 @media(max-width:900px) {
-
-.hero {
-
-    flex-direction:column;
-    text-align:center;
-
+    .hero { flex-direction:column; text-align:center; }
+    .categories, .features-grid { grid-template-columns:1fr; }
+    .globe { width:220px; height:220px; font-size:100px; }
 }
-
-.categories {
-
-    grid-template-columns:1fr;
-
-}
-
-.globe {
-
-    width:220px;
-    height:220px;
-    font-size:100px;
-
-}
-
-}
-
 
 @media(max-width:700px) {
-
-.nav-links {
-
-    display:none;
-
+    .nav-links { display:none; }
+    .menu-btn { display:block; }
+    .navbar { margin:10px; }
+    section { padding:70px 5%; }
 }
 
-.menu-btn {
-
-    display:block;
-
-}
-
-.navbar {
-
-    margin:10px;
-
-}
-
-section {
-
-    padding:70px 5%;
-
-}
-
-}
 
 /* =====================
    JOURNEY SECTION
 ===================== */
 
 #journey {
-    background: linear-gradient(
-        135deg,
-        #f8fafc,
-        #e0f2fe
-    );
+    background: linear-gradient(135deg, #f8fafc, #e0f2fe);
     min-height: 80vh;
+}
+
+body.dark-mode #journey {
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
 }
 
 
 /* Statistics */
 
 .statistics {
-
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto 60px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
 .stat-box {
-
     background: rgba(255,255,255,0.8);
     backdrop-filter: blur(15px);
-
-    padding: 35px;
+    padding: 30px;
     border-radius: 25px;
     text-align: center;
-
-    box-shadow:
-    0 20px 40px rgba(0,0,0,0.08);
-
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     animation: fadeUp 0.8s ease forwards;
     transition: .3s;
+}
 
+body.dark-mode .stat-box {
+    background: rgba(30,41,59,0.6);
 }
 
 .stat-box:hover {
-
     transform: translateY(-10px);
-
 }
 
 .stat-box strong {
-
     display:block;
-    font-size:3.5rem;
+    font-size:3rem;
     color:#2563eb;
     margin-bottom:10px;
-
+    font-weight: 700;
 }
 
 .stat-box span {
-
-    font-size:1.1rem;
+    font-size:1rem;
     color:#475569;
+}
 
+body.dark-mode .stat-box span {
+    color: #94a3b8;
 }
 
 
 /* Memories cards */
 
 .memories-grid {
-
     max-width:1000px;
     margin:auto;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:30px;
-
 }
 
 .memory-card {
-
     background:white;
     padding:30px;
     border-radius:25px;
-    box-shadow:
-
-    0 15px 35px rgba(0,0,0,.08);
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
     animation: fadeUp .6s ease;
     transition:.3s;
+    position: relative;
+    overflow: hidden;
+}
 
+body.dark-mode .memory-card {
+    background: #1e293b;
+}
+
+.memory-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #2563eb, #38bdf8);
 }
 
 .memory-card:hover {
-
     transform:translateY(-8px);
-    box-shadow:
-    0 25px 50px rgba(0,0,0,.12);
-
+    box-shadow: 0 25px 50px rgba(0,0,0,.12);
 }
 
 .memory-card h3 {
-
     font-size:1.4rem;
     margin-bottom:15px;
-
 }
 
 .memory-card p {
-
     color:#64748b;
     margin-bottom:10px;
     line-height:1.5;
+}
 
+body.dark-mode .memory-card p {
+    color: #94a3b8;
 }
 
 .delete-btn {
-
     margin-top:15px;
     background:#ef4444;
     color:white;
-
     padding:10px 22px;
     border-radius:25px;
     transition:.3s;
-
 }
 
 .delete-btn:hover {
-
     background:#dc2626;
     transform:scale(1.05);
-
 }
 
 
 /* Animation */
 
 @keyframes fadeUp {
-
-    from {
-
-        opacity:0;
-        transform:translateY(30px);
-
-    }
-
-    to {
-
-        opacity:1;
-        transform:translateY(0);
-
-    }
-
+    from { opacity:0; transform:translateY(30px); }
+    to { opacity:1; transform:translateY(0); }
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
 
 /* Mobile */
 
 @media(max-width:900px){
+    .statistics { grid-template-columns: repeat(2, 1fr); }
+    .memories-grid { grid-template-columns:1fr; }
+}
 
-.statistics,
-.memories-grid {
-
-    grid-template-columns:1fr;
-
+@media(max-width:500px){
+    .statistics { grid-template-columns: 1fr; }
 }
 
 
+/* CTA */
+
+.cta {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+}
+
+.cta .section-title {
+    color: white;
+}
+
+.cta p {
+    color: rgba(255,255,255,0.9) !important;
 }
 
 </style>
@@ -634,7 +793,6 @@ section {
 </head>
 
 <body>
-
 
 <header>
 
@@ -646,18 +804,21 @@ section {
 
 <ul class="nav-links">
 <li><a href="#home">Home</a></li>
+<li><a href="#features">Features</a></li>
 <li><a href="#categories">Categories</a></li>
 <li><a href="#add">Add</a></li>
 <li><a href="#journey">Journey</a></li>
+<li><button class="theme-toggle" id="themeToggle" title="Toggle dark mode">🌙</button></li>
 </ul>
 
-<button class="menu-btn">
+<button class="menu-btn" id="menuBtn">
 ☰
 </button>
 
 </nav>
 </header>
 
+<div class="toast-container" id="toastContainer"></div>
 
 <main>
     
@@ -683,28 +844,36 @@ Start Exploring
 
 <div class="globe-wrapper">
 
-
 <div class="globe">
 🌍
 </div>
 
-
-<span class="pin one">
-📍
-</span>
-
-
-<span class="pin two">
-📍
-</span>
-
-
-<span class="pin three">
-📍
-</span>
-
+<span class="pin one">📍</span>
+<span class="pin two">📍</span>
+<span class="pin three">📍</span>
 
 </div>
+</section>
+
+<section class="features-section" id="features">
+    <h2 class="section-title">Why JourneyCanvas?</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Easy to Document</h3>
+            <p>Capture your destinations, memories, and adventures in just a few clicks with our intuitive, dynamic forms.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Always Secure</h3>
+            <p>Your travel stories are saved locally on your device. Your memories stay private and always accessible.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3>Beautifully Organized</h3>
+            <p>Watch your travel statistics grow and browse your personal gallery of experiences effortlessly.</p>
+        </div>
+    </div>
 </section>
 
 <section class="category-section" id="categories">
@@ -716,51 +885,21 @@ What do you want to add?
 <div class="categories">
 
 <div class="category-card" data-category="destination">
-
-<div class="category-icon">
-🗺️
-</div>
-
-<h3>
-Destination
-</h3>
-
-<p>
-Places you visited or want to explore.
-</p>
-
+<div class="category-icon">🗺️</div>
+<h3>Destination</h3>
+<p>Places you visited or want to explore.</p>
 </div>
 
 <div class="category-card" data-category="memory">
-
-<div class="category-icon">
-📸
-</div>
-
-<h3>
-Memory
-</h3>
-
-<p>
-Your special moments and stories.
-</p>
-
+<div class="category-icon">📸</div>
+<h3>Memory</h3>
+<p>Your special moments and stories.</p>
 </div>
 
 <div class="category-card" data-category="adventure">
-
-<div class="category-icon">
-✈️
-</div>
-
-<h3>
-Adventure
-</h3>
-
-<p>
-Your exciting travel experiences.
-</p>
-
+<div class="category-icon">✈️</div>
+<h3>Adventure</h3>
+<p>Your exciting travel experiences.</p>
 </div>
 </div>
 </section>
@@ -774,16 +913,18 @@ Add Your Journey
 
 <div class="form-container">
 
-<form class="dynamic-form" id="journeyForm">
+<form class="dynamic-form" id="journeyForm" novalidate>
 
 <div id="formFields">
 
-<p style="text-align:center;color:#64748b;">
-Choose a category first
-</p>
-
+<div class="empty-state">
+    <div class="empty-state-icon">🌟</div>
+    <h3>Your Canvas Awaits</h3>
+    <p>Every great journey starts with a single step. Pick a category above and begin painting the story of your adventures.</p>
+    <a href="#categories" class="hint">✨ Click a category card to get started</a>
 </div>
 
+</div>
 
 <button class="save-btn" type="submit">
 Save Journey
@@ -792,8 +933,16 @@ Save Journey
 </form>
 </div>
 
-
 </section>
+
+<section class="inspiration-section" id="inspiration">
+    <div class="inspiration-content">
+        <h2>"The world is a book, and those who do not travel read only one page."</h2>
+        <p>— Saint Augustine</p>
+        <a href="#categories" class="primary-btn">Start Your Next Chapter</a>
+    </div>
+</section>
+
 <section id="journey">
 
 <h2 class="section-title">
@@ -802,44 +951,24 @@ Your Travel Journey
 
 <div class="statistics">
 <div class="stat-box">
-
-<strong id="destinationCount">
-0
-</strong>
-
-<span>
-Destinations
-</span>
-
+<strong id="totalCount">0</strong>
+<span>Total Experiences</span>
 </div>
-
 <div class="stat-box">
-
-<strong id="memoryCount">
-0
-</strong>
-
-<span>
-Memories
-</span>
-
+<strong id="destinationCount">0</strong>
+<span>Destinations</span>
 </div>
-
 <div class="stat-box">
-
-<strong id="adventureCount">
-0
-</strong>
-
-<span>
-Adventures
-</span>
-
+<strong id="memoryCount">0</strong>
+<span>Memories</span>
+</div>
+<div class="stat-box">
+<strong id="adventureCount">0</strong>
+<span>Adventures</span>
+</div>
 </div>
 
-</div>
 <div class="memories-grid" id="experiencesContainer">
-
 </div>
 
 </section>
@@ -847,28 +976,24 @@ Adventures
 
 <section class="cta">
 
-
 <h2 class="section-title">
 Ready for your next adventure?
 </h2>
 
-<p style="text-align:center;color:#64748b;margin-bottom:30px;">
+<p style="text-align:center;margin-bottom:30px;">
 Every destination becomes a story when you save it.
 </p>
 
 <div style="text-align:center;">
-
-<a href="#categories" class="primary-btn">
+<a href="#categories" class="primary-btn" style="background:white;color:#2563eb;">
 Add New Experience
 </a>
-
 </div>
 </section>
 
 </main>
 
 <footer>
-
 
 </footer>
 
@@ -884,11 +1009,67 @@ const categoryCards = document.querySelectorAll(".category-card");
 const formFields = document.getElementById("formFields");
 const journeyForm = document.getElementById("journeyForm");
 const experiencesContainer = document.getElementById("experiencesContainer");
+const toastContainer = document.getElementById("toastContainer");
+const themeToggle = document.getElementById("themeToggle");
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.querySelector(".nav-links");
 
 let selectedCategory = "";
 let experiences = JSON.parse(
     localStorage.getItem("journeyExperiences")
 ) || [];
+
+
+// ============================
+// TOAST NOTIFICATIONS
+// ============================
+
+function showToast(message, type = "success") {
+    const toast = document.createElement("div");
+    toast.className = `toast ${type}`;
+    const icons = { success: "✅", error: "❌", info: "ℹ️" };
+    toast.innerHTML = `<span>${icons[type] || "✅"}</span><span>${message}</span>`;
+    toastContainer.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+}
+
+
+// ============================
+// CONFETTI
+// ============================
+
+function createConfetti() {
+    const colors = ["#2563eb", "#38bdf8", "#22c55e", "#f59e0b", "#ec4899"];
+    for (let i = 0; i < 50; i++) {
+        const piece = document.createElement("div");
+        piece.className = "confetti-piece";
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDelay = Math.random() * 0.5 + "s";
+        piece.style.animationDuration = (2 + Math.random() * 2) + "s";
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 4000);
+    }
+}
+
+
+// ============================
+// DARK MODE
+// ============================
+
+const savedTheme = localStorage.getItem("journeyTheme");
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    themeToggle.textContent = "☀️";
+}
+
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    themeToggle.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem("journeyTheme", isDark ? "dark" : "light");
+    showToast(isDark ? "Dark mode activated 🌙" : "Light mode activated ☀️", "info");
+});
 
 
 // ============================
@@ -926,54 +1107,39 @@ function createForm(category){
         formFields.innerHTML = `
 
         <div class="form-group">
-
-        <label>
-        Country
-        </label>
-
+        <label>Country <span style="color:#ef4444;">*</span></label>
         <input 
         id="country"
         type="text"
-        placeholder="Example: Armenia">
-
+        placeholder="Example: Armenia"
+        required>
+        <div class="error-message" id="countryError"></div>
         </div>
 
         <div class="form-group">
-
-        <label>
-        City
-        </label>
-
+        <label>City <span style="color:#ef4444;">*</span></label>
         <input
         id="city"
         type="text"
-        placeholder="Example: Yerevan">
-
+        placeholder="Example: Yerevan"
+        required>
+        <div class="error-message" id="cityError"></div>
         </div>
 
         <div class="form-group">
-
-        <label>
-        Visit Date
-        </label>
-
+        <label>Visit Date <span style="color:#ef4444;">*</span></label>
         <input
         id="visitDate"
-        type="date">
-
+        type="date"
+        required>
+        <div class="error-message" id="visitDateError"></div>
         </div>
 
         <div class="form-group">
-
-        <label>
-        Favorite Place
-        </label>
-
+        <label>Favorite Place</label>
         <textarea
         id="favoritePlace"
-        placeholder="What did you like the most?">
-        </textarea>
-
+        placeholder="What did you like the most?"></textarea>
         </div>
         `;
     }
@@ -984,57 +1150,31 @@ function createForm(category){
         formFields.innerHTML = `
 
         <div class="form-group">
-
-        <label>
-        Memory Title
-        </label>
-
+        <label>Memory Title <span style="color:#ef4444;">*</span></label>
         <input
         id="memoryTitle"
         type="text"
-        placeholder="Example: Sunset in Paris">
-
+        placeholder="Example: Sunset in Paris"
+        required>
+        <div class="error-message" id="memoryTitleError"></div>
         </div>
 
-
-
         <div class="form-group">
-
-        <label>
-        Story
-        </label>
-
+        <label>Story <span style="color:#ef4444;">*</span></label>
         <textarea
         id="memoryStory"
-        placeholder="Write your memory...">
-        </textarea>
-
+        placeholder="Write your memory..."
+        required></textarea>
+        <div class="error-message" id="memoryStoryError"></div>
         </div>
 
-
-
         <div class="form-group">
-
-        <label>
-        Mood
-        </label>
-
+        <label>Mood</label>
         <select id="mood">
-
-        <option>
-        Amazing ❤️
-        </option>
-
-        <option>
-        Happy 😊
-        </option>
-
-        <option>
-        Relaxing 😌
-        </option>
-
+        <option>Amazing ❤️</option>
+        <option>Happy 😊</option>
+        <option>Relaxing 😌</option>
         </select>
-
         </div>
         `;
     }
@@ -1045,73 +1185,53 @@ function createForm(category){
         formFields.innerHTML = `
 
         <div class="form-group">
-
-        <label>
-        Adventure Type
-        </label>
-
+        <label>Adventure Type</label>
         <select id="adventureType">
-
-        <option>
-        Hiking 🏔️
-        </option>
-
-        <option>
-        Road Trip 🚗
-        </option>
-
-        <option>
-        Diving 🌊
-        </option>
-
-        <option>
-        Camping ⛺
-        </option>
-
+        <option>Hiking 🏔️</option>
+        <option>Road Trip 🚗</option>
+        <option>Diving 🌊</option>
+        <option>Camping ⛺</option>
         </select>
         </div>
 
         <div class="form-group">
-
-
-        <label>
-        Difficulty
-        </label>
-
+        <label>Difficulty</label>
         <select id="difficulty">
-
-        <option>
-        Easy
-        </option>
-
-        <option>
-        Medium
-        </option>
-
-        <option>
-        Hard
-        </option>
-
+        <option>Easy</option>
+        <option>Medium</option>
+        <option>Hard</option>
         </select>
         </div>
 
         <div class="form-group">
-
-        <label>
-        Description
-        </label>
-
-
+        <label>Description <span style="color:#ef4444;">*</span></label>
         <textarea
-
         id="adventureDescription"
-
-        placeholder="Describe your adventure...">
-
-        </textarea>
+        placeholder="Describe your adventure..."
+        required></textarea>
+        <div class="error-message" id="adventureDescriptionError"></div>
         </div>
 
         `;
+    }
+}
+
+
+// ============================
+// VALIDATION
+// ============================
+
+function validateField(id, errorId, message) {
+    const field = document.getElementById(id);
+    const error = document.getElementById(errorId);
+    if (!field.value.trim()) {
+        field.classList.add("error");
+        error.textContent = message;
+        return false;
+    } else {
+        field.classList.remove("error");
+        error.textContent = "";
+        return true;
     }
 }
 
@@ -1124,7 +1244,29 @@ function createForm(category){
 journeyForm.addEventListener("submit", function(event){
     event.preventDefault();
     if(selectedCategory === ""){
-        alert("Please select a category first.");
+        showToast("Please select a category first", "error");
+        return;
+    }
+
+    let isValid = true;
+
+    if(selectedCategory === "destination"){
+        if (!validateField("country", "countryError", "Country is required")) isValid = false;
+        if (!validateField("city", "cityError", "City is required")) isValid = false;
+        if (!validateField("visitDate", "visitDateError", "Visit date is required")) isValid = false;
+    }
+
+    if(selectedCategory === "memory"){
+        if (!validateField("memoryTitle", "memoryTitleError", "Memory title is required")) isValid = false;
+        if (!validateField("memoryStory", "memoryStoryError", "Story is required")) isValid = false;
+    }
+
+    if(selectedCategory === "adventure"){
+        if (!validateField("adventureDescription", "adventureDescriptionError", "Description is required")) isValid = false;
+    }
+
+    if (!isValid) {
+        showToast("Please fill in all required fields", "error");
         return;
     }
 
@@ -1182,10 +1324,24 @@ journeyForm.addEventListener("submit", function(event){
     saveExperiences();
     displayExperiences();
     journeyForm.reset();
+    createConfetti();
+    showToast("Journey saved successfully! 🎉", "success");
 
+    // Reset form to empty state with clickable link
+    selectedCategory = "";
+    categoryCards.forEach(item => item.classList.remove("active"));
+    formFields.innerHTML = `
+        <div class="empty-state">
+            <div class="empty-state-icon">🌟</div>
+            <h3>Ready for Another Adventure?</h3>
+            <p>You've just added a new memory to your canvas. Click below to continue building your travel story.</p>
+            <a href="#categories" class="hint">🎨 Go to Categories</a>
+        </div>
+    `;
 
 });
     
+
 // ============================
 // LOCAL STORAGE
 // ============================
@@ -1208,100 +1364,98 @@ function saveExperiences(){
 
 function displayExperiences(){
     experiencesContainer.innerHTML = "";
-    experiences.forEach(item => {
-        const card = document.createElement("div");
 
-        card.classList.add("memory-card");
-
-        let icon = "";
-        let categoryName = "";
-
-        if(item.category === "destination"){
-
-            icon = "🗺️";
-            categoryName = "Destination";
-        }
-
-        if(item.category === "memory"){
-
-            icon = "📸";
-            categoryName = "Memory";
-
-        }
-
-        if(item.category === "adventure"){
-
-            icon = "✈️";
-            categoryName = "Adventure";
-
-        }
-
-
-        card.innerHTML = `
-
-        <div style="
-        font-size:14px;
-        margin-bottom:10px;
-        color:#2563eb;
-        font-weight:600;
-        ">
-
-        ${icon} ${categoryName}
-
-        </div>
-
-        <h3>
-        ${item.title}
-        </h3>
-
-        ${
-            item.country 
-            ?
-            `<p>
-            🌍 ${item.country}
-            </p>`
-            :
-            ""
-        }
-
-        ${
-            item.date
-            ?
-            `<p>
-            📅 ${item.date}
-            </p>`
-            :
-            ""
-        }
-
-        ${
-            item.extra
-            ?
-            `<p>
-            ⭐ ${item.extra}
-            </p>`
-            :
-            ""
-        }
-
-        <p>
-
-        ${item.description}
-
-        </p>
-
-        <button 
-        class="delete-btn"
-        onclick="deleteExperience(${item.id})">
-
-        Delete
-
-        </button>
-
+    if (experiences.length === 0) {
+        experiencesContainer.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                <div style="font-size: 60px; margin-bottom: 20px;">🎒</div>
+                <h3 style="color:#64748b;">No journeys yet</h3>
+                <p style="color:#94a3b8;">Start by adding your first destination, memory, or adventure above!</p>
+            </div>
         `;
+    } else {
+        experiences.forEach(item => {
+            const card = document.createElement("div");
 
-        experiencesContainer.appendChild(card);
-    });
+            card.classList.add("memory-card");
+
+            let icon = "";
+            let categoryName = "";
+
+            if(item.category === "destination"){
+                icon = "🗺️";
+                categoryName = "Destination";
+            }
+
+            if(item.category === "memory"){
+                icon = "📸";
+                categoryName = "Memory";
+            }
+
+            if(item.category === "adventure"){
+                icon = "✈️";
+                categoryName = "Adventure";
+            }
+
+
+            card.innerHTML = `
+
+            <div style="
+            font-size:14px;
+            margin-bottom:10px;
+            color:#2563eb;
+            font-weight:600;
+            ">
+
+            ${icon} ${categoryName}
+
+            </div>
+
+            <h3>
+            ${item.title}
+            </h3>
+
+            ${
+                item.country 
+                ?
+                `<p>🌍 ${item.country}</p>`
+                :
+                ""
+            }
+
+            ${
+                item.date
+                ?
+                `<p>📅 ${item.date}</p>`
+                :
+                ""
+            }
+
+            ${
+                item.extra
+                ?
+                `<p>⭐ ${item.extra}</p>`
+                :
+                ""
+            }
+
+            <p>
+            ${item.description}
+            </p>
+
+            <button 
+            class="delete-btn"
+            onclick="deleteExperience(${item.id})">
+
+            Delete
+
+            </button>
+
+            `;
+
+            experiencesContainer.appendChild(card);
+        });
+    }
 
     updateStatistics();
 }
@@ -1313,15 +1467,42 @@ function displayExperiences(){
 
 
 function deleteExperience(id){
-    experiences = experiences.filter(item => {
-        return item.id !== id;
-    });
+    if (confirm("Delete this memory?")) {
+        experiences = experiences.filter(item => {
+            return item.id !== id;
+        });
 
-    saveExperiences();
-    displayExperiences();
+        saveExperiences();
+        displayExperiences();
+        showToast("Memory deleted", "info");
+    }
 
 }
 
+
+// ============================
+// ANIMATED COUNTER
+// ============================
+
+function animateCounter(element, target) {
+    const current = parseInt(element.textContent) || 0;
+    if (current === target) return;
+    
+    const duration = 800;
+    const steps = 30;
+    const increment = (target - current) / steps;
+    let step = 0;
+    
+    const timer = setInterval(() => {
+        step++;
+        const value = Math.round(current + increment * step);
+        element.textContent = value;
+        if (step >= steps) {
+            clearInterval(timer);
+            element.textContent = target;
+        }
+    }, duration / steps);
+}
 
 
 // ============================
@@ -1344,15 +1525,12 @@ function updateStatistics(){
         return item.category === "adventure";
     }).length;
 
+    const total = experiences.length;
 
-    document.getElementById("destinationCount").textContent =
-    destinations;
-
-    document.getElementById("memoryCount").textContent =
-    memories;
-
-    document.getElementById("adventureCount").textContent =
-    adventures;
+    animateCounter(document.getElementById("totalCount"), total);
+    animateCounter(document.getElementById("destinationCount"), destinations);
+    animateCounter(document.getElementById("memoryCount"), memories);
+    animateCounter(document.getElementById("adventureCount"), adventures);
 }
 
 
@@ -1360,11 +1538,7 @@ function updateStatistics(){
 // MOBILE MENU
 // ============================
 
-
-const menuButton = document.querySelector(".menu-btn");
-const navLinks = document.querySelector(".nav-links");
-
-menuButton.addEventListener("click",()=>{
+function toggleMenu() {
     if(navLinks.style.display === "flex"){
         navLinks.style.display = "none";
     } else {
@@ -1376,11 +1550,36 @@ menuButton.addEventListener("click",()=>{
         navLinks.style.background = "white";
         navLinks.style.padding = "20px";
         navLinks.style.borderRadius = "20px";
-        navLinks.style.boxShadow =
-        "0 10px 30px rgba(0,0,0,.15)";
+        navLinks.style.boxShadow = "0 10px 30px rgba(0,0,0,.15)";
+    }
+}
+
+function closeMenu() {
+    if (window.innerWidth <= 700) {
+        navLinks.style.display = "none";
+    }
+}
+
+menuBtn.addEventListener("click", toggleMenu);
+
+// Close menu when clicking any nav link
+navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+});
+
+// Close menu when clicking outside
+document.addEventListener("click", (e) => {
+    if (!e.target.closest(".navbar") && window.innerWidth <= 700) {
+        navLinks.style.display = "none";
     }
 });
 
+// Reset menu on resize
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 700) {
+        navLinks.style = "";
+    }
+});
 
 
 // ============================
