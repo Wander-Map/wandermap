@@ -1143,9 +1143,9 @@ if (savedTheme === "dark") {
 themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
     const isDark = document.body.classList.contains("dark-mode");
-    themeToggle.textContent = isDark ? "☀️" : "";
+    themeToggle.textContent = isDark ? "☀️" : "🌙";
     localStorage.setItem("journeyTheme", isDark ? "dark" : "light");
-    showToast(isDark ? "Dark mode activated 🌙" : "Light mode activated ☀️", "info");
+    showToast(isDark ? "Dark mode activated " : "Light mode activated ☀️", "info");
     
     // Close mobile menu if open
     if (window.innerWidth <= 700) {
