@@ -185,6 +185,68 @@ body.dark-mode .navbar {
 
 
 /* =====================
+   MOBILE MENU ACTIVE STATE
+===================== */
+
+.nav-links.mobile-active {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 85px;
+    right: 20px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    min-width: 240px;
+    z-index: 1001;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+body.dark-mode .nav-links.mobile-active {
+    background: #0f172a;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    border: 1px solid #334155;
+}
+
+.nav-links.mobile-active a {
+    padding: 12px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    width: 100%;
+    text-align: left;
+    color: #0f172a !important;
+}
+
+body.dark-mode .nav-links.mobile-active a {
+    color: #e2e8f0 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.nav-links.mobile-active a:last-child {
+    border-bottom: none;
+}
+
+.nav-links.mobile-active a:hover {
+    color: #2563eb !important;
+}
+
+body.dark-mode .nav-links.mobile-active a:hover {
+    color: #60a5fa !important;
+}
+
+.nav-links.mobile-active .theme-toggle {
+    margin-top: 15px;
+    align-self: flex-start;
+    background: rgba(37,99,235,0.1);
+}
+
+body.dark-mode .nav-links.mobile-active .theme-toggle {
+    background: rgba(255,255,255,0.1);
+}
+
+
+/* =====================
    HERO
 ===================== */
 
@@ -346,7 +408,7 @@ body.dark-mode .feature-card p {
 ===================== */
 
 .category-section {
-    background:#0f172a;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
     color:white;
 }
 
@@ -806,8 +868,8 @@ body.dark-mode .memory-card p {
 <li><a href="#home">Home</a></li>
 <li><a href="#features">Features</a></li>
 <li><a href="#categories">Categories</a></li>
-<li><a href="#add">Add</a></li>
-<li><a href="#journey">Journey</a></li>
+<li><a href="#add">Add New Journey</a></li>
+<li><a href="#journey">My Journeys</a></li>
 <li><button class="theme-toggle" id="themeToggle" title="Toggle dark mode">🌙</button></li>
 </ul>
 
@@ -1539,25 +1601,11 @@ function updateStatistics(){
 // ============================
 
 function toggleMenu() {
-    if(navLinks.style.display === "flex"){
-        navLinks.style.display = "none";
-    } else {
-        navLinks.style.display = "flex";
-        navLinks.style.flexDirection = "column";
-        navLinks.style.position = "absolute";
-        navLinks.style.top = "70px";
-        navLinks.style.right = "20px";
-        navLinks.style.background = "white";
-        navLinks.style.padding = "20px";
-        navLinks.style.borderRadius = "20px";
-        navLinks.style.boxShadow = "0 10px 30px rgba(0,0,0,.15)";
-    }
+    navLinks.classList.toggle("mobile-active");
 }
 
 function closeMenu() {
-    if (window.innerWidth <= 700) {
-        navLinks.style.display = "none";
-    }
+    navLinks.classList.remove("mobile-active");
 }
 
 menuBtn.addEventListener("click", toggleMenu);
@@ -1570,14 +1618,14 @@ navLinks.querySelectorAll("a").forEach(link => {
 // Close menu when clicking outside
 document.addEventListener("click", (e) => {
     if (!e.target.closest(".navbar") && window.innerWidth <= 700) {
-        navLinks.style.display = "none";
+        navLinks.classList.remove("mobile-active");
     }
 });
 
 // Reset menu on resize
 window.addEventListener("resize", () => {
     if (window.innerWidth > 700) {
-        navLinks.style = "";
+        navLinks.classList.remove("mobile-active");
     }
 });
 
