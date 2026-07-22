@@ -146,6 +146,19 @@ body.dark-mode .navbar {
     font-weight: 700;
 }
 
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.logo-link:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
 .nav-links {
     display:flex;
     list-style:none;
@@ -860,9 +873,11 @@ body.dark-mode .memory-card p {
 
 <nav class="navbar">
 
+<a href="#home" class="logo-link">
 <div class="logo">
 🌍 YourJourney
 </div>
+</a>
 
 <ul class="nav-links">
 <li><a href="#home">Top</a></li>
